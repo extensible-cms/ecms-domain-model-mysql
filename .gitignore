@@ -1,0 +1,16 @@
+# Misc.
+.DS_Store/
+
+# IDEs
+.idea/
+
+# Backup files for MySql Workbench
+*.bak
+
+# Dirs
+node_modules/
+
+# Logs
+yarn-error.log
+npm-debug.log
+
