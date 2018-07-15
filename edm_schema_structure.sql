@@ -19,7 +19,7 @@ DROP SCHEMA IF EXISTS `edm` ;
 -- 
 -- ** Note: From here on out the default schema name for the edm db is `edm`.
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `edm` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `edm` DEFAULT CHARACTER SET UTF8MB3 ;
 SHOW WARNINGS;
 USE `edm` ;
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`terms` (
   `term_group_alias` VARCHAR(55) NOT NULL DEFAULT '' COMMENT 'Terms group alias.  Used for grouping terms.',
   PRIMARY KEY (`term_alias`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -279,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`contact_address_relationships` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -361,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`contact_created_by_user_relationships` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -494,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`menus` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -617,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`post_category_relationships` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -662,7 +662,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`sessions` (
   `data` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `savePath`, `name`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -742,7 +742,7 @@ CREATE TABLE IF NOT EXISTS `edm`.`user_activation_keys` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = UTF8MB3;
 
 SHOW WARNINGS;
 
@@ -822,8 +822,8 @@ USE `edm` ;
 -- -----------------------------------------------------
 -- Placeholder table for view `edm`.`term_taxonomies_lookup`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `edm`.`term_taxonomies_lookup` (`id` INT);
-SHOW WARNINGS;
+-- CREATE TABLE IF NOT EXISTS `edm`.`term_taxonomies_lookup` (`id` INT);
+-- SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- procedure getTermTaxIdByAlias
@@ -979,7 +979,7 @@ SHOW WARNINGS;
 DROP TABLE IF EXISTS `edm`.`term_taxonomies_lookup`;
 SHOW WARNINGS;
 USE `edm`;
-CREATE  OR REPLACE VIEW `term_taxonomies_lookup` AS (
+CREATE VIEW `edm`.`term_taxonomies_lookup` AS (
 	SELECT 
 		t1.*, 
 		t2.childCount, 
