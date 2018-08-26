@@ -12,4 +12,7 @@ SET sql_notes = 0;
 "Adding default superadmin user data and contacts info."
 \p \W \. default_data_users_and_contacts.sql
 
+"Drop triggers defined for 'zero_baseline' hydrating purposes."
+\p \W \. drop_term_taxonomies_triggers.sql
+
 SELECT "Zero Baseline Script executed successfully."
