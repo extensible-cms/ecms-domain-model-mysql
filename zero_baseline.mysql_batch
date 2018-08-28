@@ -1,18 +1,24 @@
 SET sql_notes = 0;
 
 "Removing schema `edm` and rebuilding."
-\p \W \. edm_schema_structure.sql
+\p \W \. .\scripts\edm_schema_structure.sql
 
 "Resetting `auto_increment` values."
-\p \W \. reset_auto_increments.sql
+\p \W \. .\scripts\reset_auto_increments.sql
 
 "Adding default data for `terms` and `term_taxonomies` table."
-\p \W \. default_data_terms_and_term_taxonomies.sql
+\p \W \. .\scripts\default_data_terms_and_term_taxonomies.sql
 
 "Adding default superadmin user data and contacts info."
-\p \W \. default_data_users_and_contacts.sql
+\p \W \. .\scripts\default_data_users_and_contacts.sql
 
 "Drop triggers defined for 'zero_baseline' hydrating purposes."
-\p \W \. drop_term_taxonomies_triggers.sql
+\p \W \. .\scripts\drop_term_taxonomies_triggers.sql
+
+"Drop triggers defined for 'zero_baseline' hydrating purposes."
+\p \W \. .\scripts\drop_term_taxonomies_triggers.sql
+
+"Copy over `term_taxonomies_proxy` table columns into `term_taxonomies` table."
+\p \W \. .\scripts\copy_termtaxproxy_table_to_termtax_table.sql
 
 SELECT "Zero Baseline Script executed successfully."
