@@ -14,6 +14,3 @@ UPDATE
   WHERE
     t1.term_taxonomy_id= t2.term_taxonomy_id
 ;
-
-
-

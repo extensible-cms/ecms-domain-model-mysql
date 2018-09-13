@@ -1041,14 +1041,12 @@ BEGIN
     INSERT INTO term_taxonomies_proxy (term_taxonomy_id) 
         VALUES (NEW.term_taxonomy_id);
 
-    
     IF NEW.parent_id > 0 THEN
         CALL offsetTermTaxProxyById(NEW.parent_id, 1, 'childCount'); 
     ELSEIF NEW.parent_id = 0 THEN
         CALL offsetTermTaxProxyByAlias(NEW.taxonomy, 'taxonomy', 1, 'childCount');
     END IF;
 
-    
     CALL offsetTermTaxProxyByAlias(NEW.taxonomy, 'taxonomy', 1, 'descendants');
 END$$
 

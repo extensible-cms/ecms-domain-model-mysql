@@ -48,7 +48,7 @@ A "zero-baseline" database for building CMSs.
 - Run an OS specific batch script (for windows users run `zero_baseline.bat` from cmd/powershell).
 - Manually build up the database script by script (scripts are in `./scripts`) (look inside the
     `zero_baseline.mysql_batch` to get an idea of the necessary scripts
-    and their executed order).
+    and their executed order).  
 
 ## License
 BSD-3-Clause
