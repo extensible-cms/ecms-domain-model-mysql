@@ -12,13 +12,4 @@ SET sql_notes = 0;
 "Adding default superadmin user data and contacts info."
 \p \W \. .\scripts\default_data_users_and_contacts.sql
 
-"Drop triggers defined for 'zero_baseline' hydrating purposes."
-\p \W \. .\scripts\drop_term_taxonomies_triggers.sql
-
-"Drop triggers defined for 'zero_baseline' hydrating purposes."
-\p \W \. .\scripts\drop_term_taxonomies_triggers.sql
-
-"Copy over `term_taxonomies_proxy` table columns into `term_taxonomies` table."
-\p \W \. .\scripts\copy_termtaxproxy_table_to_termtax_table.sql
-
 SELECT "Zero Baseline Script executed successfully."
