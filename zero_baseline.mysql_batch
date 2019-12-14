@@ -1,7 +1,7 @@
 SET sql_notes = 0;
 
-"Removing schema `edm` and rebuilding."
-\p \W \. .\scripts\edm_schema_structure.sql
+"Removing schema `ecms` and rebuilding."
+\p \W \. .\scripts\ecms_schema_structure.sql
 
 "Resetting `auto_increment` values."
 \p \W \. .\scripts\reset_auto_increments.sql

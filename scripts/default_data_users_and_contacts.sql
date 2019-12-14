@@ -3,7 +3,7 @@
 -- ** Note ** If you run this file separately from the build process, do so with caution.
 
 -- Set Database
-use `edm`;
+use `ecms`;
 
 -- Prelims
 SET @user_screenName = 'superadmin';
