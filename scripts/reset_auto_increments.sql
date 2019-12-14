@@ -1,4 +1,4 @@
-use `edm`;
+use `ecms`;
 ALTER TABLE addresses   AUTO_INCREMENT = 1;
 ALTER TABLE comments    AUTO_INCREMENT = 1;
 ALTER TABLE contacts    AUTO_INCREMENT = 1;
