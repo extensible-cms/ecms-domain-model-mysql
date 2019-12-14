@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`posts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 52;
+AUTO_INCREMENT = 1;
 
 
 -- -----------------------------------------------------
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`contacts` (
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 7;
+AUTO_INCREMENT = 1;
 
 
 -- -----------------------------------------------------
@@ -298,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`users` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3;
+AUTO_INCREMENT = 1;
 
 
 -- -----------------------------------------------------
@@ -409,7 +409,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`view_modules` (
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 16
+AUTO_INCREMENT = 1
 COMMENT = '@todo should drop html_id and html_class for htmlAttribs';
 
 
@@ -472,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`pages` (
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 9;
+AUTO_INCREMENT = 1;
 
 
 -- -----------------------------------------------------
