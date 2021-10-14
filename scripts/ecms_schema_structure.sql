@@ -42,25 +42,25 @@ CREATE TABLE IF NOT EXISTS `ecms`.`term_taxonomies` (
   `taxonomy` VARCHAR(55) NOT NULL DEFAULT '' COMMENT 'Taxonomies category.',
   `description` TEXT NOT NULL,
   `accessGroup` VARCHAR(55) NOT NULL DEFAULT 'cms-manager' COMMENT 'Access group of who can edit/access this term term taxonomy.  For admin side of things (useful for CMSs (Content Management Systems) and the like).',
-  `listOrder` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Ordering.',
+  `order` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Ordering.',
   `parent_id` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Parent term taxonomy (if any).',
   `access_group_id` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Access control list access group (should reference `term_taxonomies.term_taxonomy_id` or `0`).',
   `locale_id` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Locale id (should reference `term_taxonomies.term_taxonomy_id` or `0`).',
   PRIMARY KEY (`term_taxonomy_id`),
-  INDEX `term_taxonomies_term_alias_idx` (`term_alias` ASC) VISIBLE,
-  INDEX `term_taxonomies_accessGroup_idx` (`accessGroup` ASC) VISIBLE,
-  INDEX `term_taxonomies_taxonomy_idx` (`taxonomy` ASC) VISIBLE,
-  CONSTRAINT `term_taxonomies_term_alias_fk`
+  INDEX `tt_term_alias_idx` (`term_alias` ASC) VISIBLE,
+  INDEX `tt_accessGroup_idx` (`accessGroup` ASC) VISIBLE,
+  INDEX `tt_taxonomy_idx` (`taxonomy` ASC) VISIBLE,
+  CONSTRAINT `tt_term_alias_fk`
     FOREIGN KEY (`term_alias`)
     REFERENCES `ecms`.`terms` (`term_alias`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
-  CONSTRAINT `term_taxonomies_taxonomy_fk`
+  CONSTRAINT `tt_taxonomy_fk`
     FOREIGN KEY (`taxonomy`)
     REFERENCES `ecms`.`terms` (`term_alias`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
-  CONSTRAINT `term_taxonomies_accessGroup_fk`
+  CONSTRAINT `tt_accessGroup_fk`
     FOREIGN KEY (`accessGroup`)
     REFERENCES `ecms`.`terms` (`term_alias`)
     ON DELETE NO ACTION
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`posts` (
   `content` LONGTEXT NOT NULL,
   `excerpt` VARCHAR(2048) NOT NULL DEFAULT '',
   `hits` BIGINT(20) NOT NULL DEFAULT '0',
-  `listOrder` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+  `order` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `commenting` VARCHAR(55) NOT NULL DEFAULT 'disabled',
   `commentCount` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `accessGroup` VARCHAR(55) NOT NULL DEFAULT 'guest',
@@ -505,7 +505,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`media` (
   `post_id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `mimeType` VARCHAR(55) NOT NULL DEFAULT '',
   `filePath` VARCHAR(255) NOT NULL DEFAULT '',
-  `listOrder` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+  `order` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `objectRelId` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `objectRelType` VARCHAR(55) NOT NULL DEFAULT 'post',
   PRIMARY KEY (`media_id`),
@@ -594,7 +594,7 @@ CREATE TABLE IF NOT EXISTS `ecms`.`mixed_term_relationships` (
   `term_taxonomy_id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   `status` VARCHAR(55) NOT NULL DEFAULT 'unpublished',
   `accessGroup` VARCHAR(55) NOT NULL DEFAULT 'guest',
-  `listOrder` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+  `order` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
   PRIMARY KEY (`object_id`, `objectType`, `term_taxonomy_id`),
   INDEX `mixed_term_rels_fk1_idx1` (`term_taxonomy_id` ASC) VISIBLE,
   INDEX `mixed_term_rels_fk3_idx` (`accessGroup` ASC) VISIBLE,
